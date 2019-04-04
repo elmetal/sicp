@@ -1,4 +1,6 @@
 (use compat.sicp)
+(use slib)
+(require 'trace)
 
 (define (apply-generic op . args)
   (let* ((type-tags (map type-tag args))
@@ -212,8 +214,10 @@
 ;;; 実行
 (define z (make-complex-from-real-imag 3 4))
 (display "(define z (make-complex-from-real-imag 3 4))\n")
-(display z)
-(display "\n")
-(display (magnitude z))
-(display "\n")
+(trace magnitude)
+(trace get)
+(trace apply-generic)
+(trace type-tag)
+
+(magnitude z)
 
